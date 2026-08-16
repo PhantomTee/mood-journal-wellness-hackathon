@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mood-journal",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["serve.py"],
+      "port": 4173,
+      "autoPort": true
+    }
+  ]
+}

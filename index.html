@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mood Journal · Wellness</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="brand">
+    <span class="brand-mark">🌿</span>
+    <div>
+      <h1>Mood Journal</h1>
+      <p class="tagline">A quiet place to check in with yourself</p>
+    </div>
+  </div>
+  <div class="streak-badge" id="streakBadge">
+    <span class="streak-flame">🔥</span>
+    <span id="streakCount">0</span>
+    <span class="streak-label">day streak</span>
+  </div>
+</header>
+
+<main class="layout">
+
+  <section class="card entry-card">
+    <h2>How are you, right now?</h2>
+
+    <div class="mood-scale" id="moodScale" role="radiogroup" aria-label="Select your mood">
+      <button type="button" class="mood-option" data-mood="1" aria-label="Very low">
+        <span class="mood-emoji">😢</span><span class="mood-word">Low</span>
+      </button>
+      <button type="button" class="mood-option" data-mood="2" aria-label="Down">
+        <span class="mood-emoji">😕</span><span class="mood-word">Down</span>
+      </button>
+      <button type="button" class="mood-option" data-mood="3" aria-label="Okay">
+        <span class="mood-emoji">😐</span><span class="mood-word">Okay</span>
+      </button>
+      <button type="button" class="mood-option" data-mood="4" aria-label="Good">
+        <span class="mood-emoji">🙂</span><span class="mood-word">Good</span>
+      </button>
+      <button type="button" class="mood-option" data-mood="5" aria-label="Great">
+        <span class="mood-emoji">😄</span><span class="mood-word">Great</span>
+      </button>
+    </div>
+
+    <div class="tag-row" id="tagRow">
+      <button type="button" class="tag-chip" data-tag="Anxious">Anxious</button>
+      <button type="button" class="tag-chip" data-tag="Grateful">Grateful</button>
+      <button type="button" class="tag-chip" data-tag="Tired">Tired</button>
+      <button type="button" class="tag-chip" data-tag="Energized">Energized</button>
+      <button type="button" class="tag-chip" data-tag="Stressed">Stressed</button>
+      <button type="button" class="tag-chip" data-tag="Calm">Calm</button>
+      <button type="button" class="tag-chip" data-tag="Lonely">Lonely</button>
+      <button type="button" class="tag-chip" data-tag="Loved">Loved</button>
+    </div>
+
+    <label for="journalText" class="field-label">What's on your mind?</label>
+    <textarea id="journalText" rows="4" placeholder="Write as much or as little as you want..."></textarea>
+
+    <div class="prompt-box">
+      <p><strong>Reflection prompt:</strong> <span id="promptText">What's one small thing that went right today?</span></p>
+      <button type="button" id="shufflePrompt" class="ghost-btn">🔀 New prompt</button>
+    </div>
+
+    <button type="button" id="saveEntry" class="primary-btn">Save entry</button>
+    <p class="hint" id="saveHint"></p>
+  </section>
+
+  <section class="card insight-card">
+    <h2>AI reflection <span class="badge-mini">runs on-device</span></h2>
+    <p class="insight-sub">A small AI model reads your entry right in your browser — nothing is uploaded anywhere.</p>
+    <div id="aiStatus" class="ai-status">Save an entry to get a reflection.</div>
+    <div id="aiInsight" class="ai-insight-body"></div>
+  </section>
+
+  <section class="card chart-card">
+    <h2>Your last 14 days</h2>
+    <svg id="moodChart" viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet"></svg>
+    <p class="empty-state" id="chartEmpty">No entries yet — your trend will appear here.</p>
+  </section>
+
+  <section class="card history-card">
+    <h2>Past entries</h2>
+    <div id="entryList" class="entry-list"></div>
+    <p class="empty-state" id="historyEmpty">Nothing logged yet. Your first entry starts the streak!</p>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <p>Built for CS Girlies Technology For Wellness Hackathon · Wellness track · Your data stays on this device.</p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

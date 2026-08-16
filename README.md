@@ -4,9 +4,13 @@ A private, on-device mood journal built for the **CS Girlies Technology For Well
 
 Log how you're feeling, jot a quick note, and get a gentle AI-generated reflection — all running locally in your browser. No account, no server, no data leaving your device.
 
+## Design
+
+The visual identity is built around the **mood ring**: 1970s thermochromic jewelry that mapped color directly to feeling. Instead of generic emoji, moods are five named stones — Onyx, Smoky Quartz, Citrine, Emerald, Sapphire — each with its own hue and a one-word feeling, presented as a literal color legend (see `js/gems.js`). The centerpiece is a living CSS gemstone that shifts color as you choose your mood and settles with a soft pulse when you save — no images, pure layered gradients. The AI panel is named **Refraction**, since it's reading finer color out of what you wrote. Dark "jewelry case" background, brass metal accents, Fraunces/Jost/Space Mono type system.
+
 ## Features
 
-- **Mood check-in** — 5-point emoji mood scale + quick feeling tags (Anxious, Grateful, Tired, Stressed, etc.)
+- **Mood check-in** — 5-stone mood-ring scale + quick feeling tags (Anxious, Grateful, Tired, Stressed, etc.)
 - **Journal entry** with a shuffled reflection prompt to help you get started
 - **On-device AI insight** — a small emotion-classification model runs entirely in the browser (via [Transformers.js](https://github.com/xenova/transformers.js)) to label the entry's emotion and surface a supportive, pre-written note. If the model can't load (no internet, first-load still downloading), a lightweight keyword-based classifier steps in automatically so the feature never breaks.
 - **14-day mood trend chart** (custom SVG, no chart library)

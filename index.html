@@ -3,49 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mood Journal · Wellness</title>
+<title>Mood Journal — Your daily reading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<div class="grain" aria-hidden="true"></div>
+
 <header class="app-header">
-  <div class="brand">
-    <span class="brand-mark">🌿</span>
-    <div>
-      <h1>Mood Journal</h1>
-      <p class="tagline">A quiet place to check in with yourself</p>
+  <div class="hero">
+    <div id="heroGem" class="gem gem-hero gem-idle" aria-hidden="true">
+      
     </div>
+    <h1 class="wordmark">Mood Journal</h1>
+    <p class="tagline">Your daily reading.</p>
   </div>
   <div class="streak-badge" id="streakBadge">
-    <span class="streak-flame">🔥</span>
+    <span class="streak-dot">◆</span>
     <span id="streakCount">0</span>
-    <span class="streak-label">day streak</span>
+    <span class="streak-label">days running</span>
   </div>
 </header>
 
 <main class="layout">
 
   <section class="card entry-card">
-    <h2>How are you, right now?</h2>
+    <p class="eyebrow">Today's reading</p>
+    <h2>What color is today?</h2>
 
-    <div class="mood-scale" id="moodScale" role="radiogroup" aria-label="Select your mood">
-      <button type="button" class="mood-option" data-mood="1" aria-label="Very low">
-        <span class="mood-emoji">😢</span><span class="mood-word">Low</span>
+    <div class="mood-scale" id="moodScale" role="radiogroup" aria-label="Choose today's stone">
+      <button type="button" class="mood-option" data-mood="1" aria-label="Onyx — Heavy">
+        <span class="gem gem-swatch" data-stone="onyx"></span>
+        <span class="mood-name">Onyx</span>
+        <span class="mood-feeling">Heavy</span>
       </button>
-      <button type="button" class="mood-option" data-mood="2" aria-label="Down">
-        <span class="mood-emoji">😕</span><span class="mood-word">Down</span>
+      <button type="button" class="mood-option" data-mood="2" aria-label="Smoky Quartz — Uneasy">
+        <span class="gem gem-swatch" data-stone="smoky-quartz"></span>
+        <span class="mood-name">Smoky Quartz</span>
+        <span class="mood-feeling">Uneasy</span>
       </button>
-      <button type="button" class="mood-option" data-mood="3" aria-label="Okay">
-        <span class="mood-emoji">😐</span><span class="mood-word">Okay</span>
+      <button type="button" class="mood-option" data-mood="3" aria-label="Citrine — Mixed">
+        <span class="gem gem-swatch" data-stone="citrine"></span>
+        <span class="mood-name">Citrine</span>
+        <span class="mood-feeling">Mixed</span>
       </button>
-      <button type="button" class="mood-option" data-mood="4" aria-label="Good">
-        <span class="mood-emoji">🙂</span><span class="mood-word">Good</span>
+      <button type="button" class="mood-option" data-mood="4" aria-label="Emerald — Calm">
+        <span class="gem gem-swatch" data-stone="emerald"></span>
+        <span class="mood-name">Emerald</span>
+        <span class="mood-feeling">Calm</span>
       </button>
-      <button type="button" class="mood-option" data-mood="5" aria-label="Great">
-        <span class="mood-emoji">😄</span><span class="mood-word">Great</span>
+      <button type="button" class="mood-option" data-mood="5" aria-label="Sapphire — Bright">
+        <span class="gem gem-swatch" data-stone="sapphire"></span>
+        <span class="mood-name">Sapphire</span>
+        <span class="mood-feeling">Bright</span>
       </button>
     </div>
 
+    <p class="field-label">What's tinting today?</p>
     <div class="tag-row" id="tagRow">
       <button type="button" class="tag-chip" data-tag="Anxious">Anxious</button>
       <button type="button" class="tag-chip" data-tag="Grateful">Grateful</button>
@@ -57,41 +74,44 @@
       <button type="button" class="tag-chip" data-tag="Loved">Loved</button>
     </div>
 
-    <label for="journalText" class="field-label">What's on your mind?</label>
+    <label for="journalText" class="field-label">Say more, if you want</label>
     <textarea id="journalText" rows="4" placeholder="Write as much or as little as you want..."></textarea>
 
     <div class="prompt-box">
-      <p><strong>Reflection prompt:</strong> <span id="promptText">What's one small thing that went right today?</span></p>
-      <button type="button" id="shufflePrompt" class="ghost-btn">🔀 New prompt</button>
+      <p><span class="prompt-kicker">Prompt</span> <span id="promptText">What's one small thing that went right today?</span></p>
+      <button type="button" id="shufflePrompt" class="ghost-btn">Another prompt</button>
     </div>
 
-    <button type="button" id="saveEntry" class="primary-btn">Save entry</button>
+    <button type="button" id="saveEntry" class="primary-btn">Take today's reading</button>
     <p class="hint" id="saveHint"></p>
   </section>
 
   <section class="card insight-card">
-    <h2>AI reflection <span class="badge-mini">runs on-device</span></h2>
-    <p class="insight-sub">A small AI model reads your entry right in your browser — nothing is uploaded anywhere.</p>
-    <div id="aiStatus" class="ai-status">Save an entry to get a reflection.</div>
+    <p class="eyebrow">Refraction</p>
+    <h2>A closer look</h2>
+    <p class="insight-sub">A small AI model reads what you wrote, right here in your browser. Nothing is uploaded.</p>
+    <div id="aiStatus" class="ai-status">Take a reading to see your refraction.</div>
     <div id="aiInsight" class="ai-insight-body"></div>
   </section>
 
   <section class="card chart-card">
-    <h2>Your last 14 days</h2>
+    <p class="eyebrow">Fourteen days</p>
+    <h2>Your pattern</h2>
     <svg id="moodChart" viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet"></svg>
-    <p class="empty-state" id="chartEmpty">No entries yet — your trend will appear here.</p>
+    <p class="empty-state" id="chartEmpty">Your pattern will appear here once you've taken a few readings.</p>
   </section>
 
   <section class="card history-card">
-    <h2>Past entries</h2>
+    <p class="eyebrow">Archive</p>
+    <h2>Your readings</h2>
     <div id="entryList" class="entry-list"></div>
-    <p class="empty-state" id="historyEmpty">Nothing logged yet. Your first entry starts the streak!</p>
+    <p class="empty-state" id="historyEmpty">No readings yet. Take one above to start your streak.</p>
   </section>
 
 </main>
 
 <footer class="app-footer">
-  <p>Built for CS Girlies Technology For Wellness Hackathon · Wellness track · Your data stays on this device.</p>
+  <p>Built for CS Girlies Technology For Wellness Hackathon · Wellness track · Every reading stays on this device — nothing is uploaded, ever.</p>
 </footer>
 
 <script type="module" src="js/app.js"></script>
